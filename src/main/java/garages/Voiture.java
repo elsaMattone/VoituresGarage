@@ -33,7 +33,6 @@ public class Voiture {
                 }
 		Stationnement s = new Stationnement(this, g);
 		myStationnements.add(s);
-                garagesVisites();
 	}
 
 	/**
