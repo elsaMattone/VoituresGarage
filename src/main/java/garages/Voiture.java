@@ -46,7 +46,7 @@ public class Voiture {
                     throw new UnsupportedOperationException("La voiture n'est pas dans un garage");
                 }
                 Stationnement s = myStationnements.get(myStationnements.size()-1);
-                myStationnements.remove(s);
+                s.terminer();
 	}
 
 	/**
@@ -95,10 +95,17 @@ public class Voiture {
 	 */
 	public void imprimeStationnements(PrintStream out) {
 		// TODO: Implémenter cette méthode
-                out.append()
+                String text = "";
+                for (Garage g : this.garagesVisites()){
+                    text += g.toString() + ": \n";
+                    for (Stationnement s : myStationnements){
+                        if (s.getGarage() == g){
+                            text += "   " + s.toString() + "\n";
+                        }
+                    }
+                }
 		//throw new UnsupportedOperationException("Pas encore implémenté");
-                
-                
+                out.println(text);
 	}
 
 }
